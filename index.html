@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+
+    <style>
+        body{
+            background-color: rgb(141, 77, 77);
+            text-align: center;
+        }
+        main{
+            background-color: white;
+            padding:20px;
+            border-radius: 6px;
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+
+        }
+        h1{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        button,input,span{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding: 8px;
+            margin: 6px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <main>
+    <h1> Trabalho sobre To Do List</h1>
+        
+       
+            <input type="text" placeholder = "Digite aqui a atividade" id="tarefa">
+            <button onclick="listar()"> Clique aqui!</button>
+            <div id="demo"></div></main>
+            <script>
+                let modo=0;
+                let id=1;
+                
+                function listar(){
+                    const div2 = document.createElement("div");    
+                    const button = document.createElement("input");
+                    button.type = "submit";
+                    const span = document.createElement("span");
+                    const input = document.createElement("input");
+                    input.type = "checkbox";
+                    const texto = document.getElementById("tarefa").value;
+                    const div = document.getElementById("demo");  
+                    span.innerHTML = texto;
+                    button.value = "Excluir";
+                    div.appendChild(div2);
+                    div2.appendChild(span);
+                    div2.appendChild(input);
+                    div2.appendChild(button);
+                    
+                    button.addEventListener("click", function(){
+                        const element = document.activeElement.parentElement;
+                        element.remove();
+                    });
+                    
+                    input.addEventListener("click", function(){
+                        console.log(input.checked);
+                        if(input.checked)
+                            span.style.textDecoration = "line-through";
+                        else
+                            span.style.textDecoration = "none";
+                    });
+                                      
+                
+                }
+
+                
+                
+            </script>
+
+</body>
+</html>
